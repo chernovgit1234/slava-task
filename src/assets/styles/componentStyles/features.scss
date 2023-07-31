@@ -1,0 +1,114 @@
+.features {
+    &__loader {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__body {
+        @include adaptiveValue("padding-top", 64, 24);
+        @include adaptiveValue("padding-bottom", 64, 24);
+
+        @media (max-width: 400px){
+          overflow-x: hidden;
+        }
+    }
+
+    &__items {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(rem(384), 1fr));
+
+        @include adaptiveValue("gap", 24, 10);
+        @include adaptiveValue("margin-bottom", 40, 20);
+
+        @media (max-width:$tablet){
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__title {
+        color: $mainColor;
+        font-family: NissanBrandLight;
+        text-transform: uppercase;
+        line-height: math.div(48, 36);
+        font-weight: 300;
+
+        @include adaptiveValue("font-size", 36, 24);
+        @include adaptiveValue("margin-bottom", 48, 24);
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        
+        button {
+            @include adaptiveValue("padding-bottom", 13, 5);
+            @include adaptiveValue("padding-top", 13, 5);
+            @include adaptiveValue("padding-left", 47, 24);
+            @include adaptiveValue("padding-right", 47, 24);
+
+            border: 2px solid #C31613;
+            background-color: #fff;
+            font-family: NissanBrandRegular;
+            font-size: rem(16);
+            line-height: math.div(24, 16);
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+
+            @media (any-hover: hover){
+                &:hover{
+                    background-color: #db5755;
+                    transition: all 0.3s ease 0s;
+                    color:  #fff;
+                }
+            }
+
+            &[disabled] {
+                background-color: #fff;
+                color: grey;
+                cursor:default;
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+.item-feature {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("gap", 16, 5);
+    width: rem(384);
+    height: rem(294);
+    
+    @media (max-width: 400px){
+        width: rem(350);
+        gap: 0;
+    }
+
+    &__icon {
+        height: rem(200);
+        width: rem(384);
+    }
+
+    &__description {
+        display: flex;
+        text-align: left;
+        text-align:  flex-start;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: NissanBrandLight;
+        line-height: math.div(25.6, 16);
+        @include adaptiveValue("font-size", 16, 14);
+
+        @media (max-width: 400px){
+          padding: 0 rem(5);
+        }
+    }
+}

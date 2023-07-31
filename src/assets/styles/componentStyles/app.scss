@@ -1,0 +1,12 @@
+@use "sass:math";
+
+.app {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: rem(32);
+
+    @media (max-width: $mobile) {
+        gap: rem(15);
+    }
+}
