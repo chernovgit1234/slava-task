@@ -27,6 +27,12 @@ npm run serve
 npm run build
 ```
 ### Deploy 
+git init
+git add .
+git commit -m "name commit"
+git branch -M main
+git remote add origin [https]
+git push -u origin main
 git subtree push --prefix dist origin gh-pages
 
 
